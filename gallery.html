@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="gallery.css">
+    <!-- Tailwind CSS betöltése -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter betűtípus használata -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Serif:ital@0;1&family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Rhodium+Libre&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="app-container">
+    <!-- Fő tartalom konténer, az összes térközkezelés a main-content CSS osztállyal történik -->
+<header class="header">
+  <img class="logo-image" src="LOGOS/cphfwlogo.png" alt="CPHFW logo">
+</header>
+        
+
+        <!-- Fő cím: GALLERY -->
+        <section class="main-content">
+            <h2 class="gallery-title page-title">Gallery</h2>
+        </section>
+        <div class="fashion-info">
+            <div class="fashion-header">
+                <h3 class="fashiontoday">Fashion shows Today</h3>
+                <a href="fashion.html"><img src="LOGOS/black-arrow.svg" alt="black-arrow" class="black-arrow1"></a>
+            </div>
+            <p class="fashion-caption">See what's happening on the runway today <br> fresh looks, bold designs, and must-see moments.</p>
+        </div>
+        <!-- Fashion Shows Today szekció -->
+        <div class="horizontal-scroll">
+            <div class="horizontal-scroll">
+                <!-- card 1: Aiayu -->
+                <div class="show-card">
+                    <img src="app-images/22.png" alt="Aiayu" class="card-image"><a href="https://copenhagenfashionweek.com/brand/aiayu"></a>
+                    <p class="caption">Aiayu</p>
+                </div>
+                <!-- card 2: Baum -->
+                <div class="show-card">
+                    <img src="app-images/58.png" alt="Baum" class="card-image">
+                    <p class="caption">Baum</p>
+                </div>
+                <!-- card 3: The Garment -->
+                <div class="show-card">
+                    <img src="app-images/15.png" alt="The Garment" class="card-image">
+                    <p class="caption">The Garment</p>
+                </div>
+                <!-- card 4: 66°North -->
+                <div class="show-card">
+                    <img src="app-images/56.png" alt="66°North" class="card-image">
+                    <p class="caption">66°North</p>
+                </div>
+                <!-- card 5: Deadwood -->
+                <div class="show-card">
+                    <img src="app-images/36.png" alt="Deadwood" class="card-image">
+                    <p class="caption">Deadwood</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Socials Today szekció -->
+        <section class="Socials">
+            <div class="socials-header">
+                <h4 class="socials-title">Socials Today</h4>
+                <a href="socials.html"><img src="LOGOS/black-arrow.svg" alt="black-arrow" class="black-arrow"></a>
+            </div>
+            <p class="socials-text">
+                Highlights from meetups, parties & moments <br> you don't want to miss.
+            </p>
+             <div class="horizontal-scroll2">
+                 <!-- card 1: Afterparty -->
+                 <div class="show-card2">
+                     <img src="app-images/3.jpeg" alt="Afterparty" class="card-image2">
+                     <p class="social-caption">Afterparty</p>
+                 </div>
+                <!-- card 2: Meet and Greet -->
+                <div class="show-card2">
+                    <img src="app-images/4.jpeg" alt="Meet and Greet" class="card-image2">
+                    <p class="social-caption">Meet and Greet</p>
+                </div>
+                <!-- card 3: Walk and -->
+                <div class="show-card2">
+                    <img src="app-images/8.jpeg" alt="Walk and Talk" class="card-image2">
+                    <p class="social-caption">Walk and Talk</p>
+                </div>
+            </div>
+        </section>
+
+</div>
+<!-- Shared mobile nav (loaded from includes/nav.html) -->
+<div id="site-nav" data-include="includes/nav.html"></div>
+<script src="js/load-nav.js" defer></script>
+</body>
+</html>

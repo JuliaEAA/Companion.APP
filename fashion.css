@@ -1,0 +1,184 @@
+:root {
+     --primary-color: #171717;
+     --secondary-color: #717174;
+     --background-color: #fefefe;
+     --font-family: 'DM Sans', sans-serif;
+     --max-width: 430px; /* A kért maximális szélesség mobiltelefonhoz */
+     --max-height: 938px; /* A kért maximális magasság mobiltelefonhoz */
+ }
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+.backwrap {
+  position: relative;
+  bottom: auto;
+  margin-top: 40px;
+  left: 2px;
+}
+.backbutton {
+  width: 75px;
+  height: auto; /* fixed height for consistent centering */
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+}
+
+/* --- Fejléc (Header) Stílusok --- */
+
+.show-info h1 {
+    font-size: 35px;
+    margin-bottom: 10px;
+    font-weight: 550;
+    text-align: left;
+    color: #171717;
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+}
+
+.border-line {
+    border-bottom: 2px dashed #171717;
+    align-items: center;
+}
+
+/* --- Tartalmi szekciók (Main Content) Stílusok --- */
+.brand-section {
+    margin-bottom: 30px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.section-header h2 {
+    font-size: 30px;
+    font-weight: 400;
+    font-family: "DM Sans", sans-serif;
+    color: #171717;
+
+}
+.section-header h3 {
+    font-size: 30px;
+    font-weight: 400;
+    font-family: "DM Sans", sans-serif;
+    color: #171717;
+
+}
+.section-header h4 {
+    font-size: 30px;
+    font-weight: 400;
+    font-family: "DM Sans", sans-serif;
+    color: #171717;
+
+}
+.more-button {
+    background-color: #717174;
+    border: none;
+    color: #fefefe;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 5px;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    text-align: right;
+    align-items: flex-end;
+    margin-left: auto;
+}
+
+.app-container {
+    max-width: var(--max-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px 80px; /* side padding so cards don't touch the edges; reserve footer space */
+    box-sizing: border-box;
+}
+
+/* keep main content full-width inside the app container */
+.content {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* grid stays two columns but sits inside .app-container padding */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 170px); /* each card column is 170px */
+    justify-content: center;                  /* center the two columns in the container */
+    gap: 25px;                                 /* space between cards */
+    padding: 0;
+}
+
+/* card stacks image + caption vertically and has fixed card width */
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    /* centers image and caption horizontally */
+    width: 170px;           /* card width matches image width */
+    box-sizing: border-box;
+}
+
+/* image fills its card cell, fixed to 170x216 */
+.card-image {
+    width: 170px;
+    height: 216px;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+    border-radius: 0;
+}
+
+/* caption sits directly under the image and matches its width */
+.caption {
+    margin: 8px 0 0 0;
+    padding: 0;
+    font-size: 15px;
+    font-weight: 400;
+    color: #171717;
+    text-align: right; /* centers text under the image */
+    font-family: "DM Sans", sans-serif;
+    width: 170px;       /* ensure caption width equals image width */
+    box-sizing: border-box;
+}
+
+.iphone-container {
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 90px; /* reserve space for fixed nav */
+    box-sizing: border-box;
+}
+
+/* Placeholder képek a kód teszteléséhez */
+.card:nth-child(1) .card-image {
+    background-color: #d1c4e9; /* Példa háttérszín, amíg a képek nincsenek feltöltve */
+}
+
+.card:nth-child(2) .card-image {
+    background-color: #f8bbd0;
+}
+
+.brand-section:nth-child(2) .card:nth-child(1) .card-image {
+    background-color: #a7ffeb;
+}
+
+.brand-section:nth-child(2) .card:nth-child(2) .card-image {
+    background-color: #ffccbc;
+}
+
+.brand-section:nth-child(3) .card:nth-child(1) .card-image {
+    background-color: #c8e6c9;
+}
+
+.brand-section:nth-child(3) .card:nth-child(2) .card-image {
+    background-color: #b3e5fc;
+}

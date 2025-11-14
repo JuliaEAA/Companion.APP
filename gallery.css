@@ -1,0 +1,380 @@
+:root {
+     --primary-color: #171717;
+     --secondary-color: #717174;
+     --background-color: #fefefe;
+     --font-family: 'DM Sans', sans-serif;
+     --max-width: 440px; /* mobile max width */
+     --max-height: 1028px;
+}
+
+/* make box sizing predictable and remove default body margins */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+}
+
+/* app container centers everything and constrains width */
+#app-container {
+    max-width: var(--max-width);
+    width: 100%;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-bottom: 72px;
+    overflow-x: hidden;
+}
+
+/* horizontal sliders: size to content, small gaps */
+.horizontal-scroll,
+.horizontal-scroll2 {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    padding: 0 10px 10px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* card images sized to fixed card inner width; cards don't add extra empty width */
+.card-image,
+.card-image2 {
+    width: 140px;
+    height: 205px;
+    object-fit: cover;
+    border-radius: 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin: 0;
+    display: block;
+}
+
+/* each show-card sizes to its content; removes fixed 205px causing gaps */
+.show-card,
+.show-card2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 0 0 auto;
+    width: auto;
+    padding: 8px 0;
+    margin: 0;
+}
+
+/* caption under image and constrained to card width */
+.caption {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #171717;
+    text-align: center;
+    margin: 0;
+    width: 140px;
+    word-wrap: break-word;
+}
+
+/* Fonts Import */
+.dm-sans {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.dm-sans-bold {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.oswald {
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.oswald-bold {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.logo-image {
+    width: 120px;
+    height: 79px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    max-width: var(--max-width);
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+.h1 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    line-height: 1;
+}
+
+/* Fő cím stílusa */
+.gallery-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 70px;
+    font-weight: 500;
+    color: #171717;
+    margin: 0 0 10px 20px;
+    text-transform: uppercase;
+        text-align: center;
+        border-bottom: 2px dashed #171717;
+}
+
+/* shared page title utility (used across multiple pages) */
+.page-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 70px;
+    font-weight: 500;
+    color: #171717;
+    margin: 10px 0 10px 0;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 2px dashed #171717;
+}
+.fashiontoday {
+    font-family: 'Oswald', sans-serif;
+    font-size: 35px;
+    font-weight: 600;
+    color: #171717;
+    margin-left: 10px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: left;
+    text-transform: uppercase;
+}
+.fashion-caption {
+    font-size: 15px;
+    margin-left: 10px;
+    font-weight: 400;
+    text-align: left;
+    color: #171717;
+    font-family: "DM Sans", sans-serif;
+    margin-bottom: 10px;
+}
+ /* Horizontális görgetésű konténerek stílusa */
+  .horizontal-scroll {
+    display: flex;
+    overflow-x: scroll;
+    gap: 12px;
+    padding: 0 10px 10px 10px;/* Alulra is adunk paddingot a görgetéshez */
+    -webkit-overflow-scrolling: touch; /* iOS gördülő effektus */
+    scrollbar-width: none; /* Firefox */
+    background-attachment: fixed;
+    background-size: 573px 278px;
+    background-color: #cccccc;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+    display: flex; /* Chrome, Safari, Opera */
+
+}
+
+.card-image {
+    width: 139px;
+    height: 205px;
+    object-fit: cover;
+    border-radius: 0px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    row-gap: 6px;
+}
+
+.show-card {
+    flex-shrink: 0;
+    width: 205px; /* Kártya fix szélessége */
+    flex: 0 0 205px; /* Kártya fix szélessége */
+    display: flex;
+    flex-direction: column;      /* caption under image */
+    align-items: flex-end;
+    gap: 8px;
+    flex: 0 0 auto;              /* do not grow; size to content */
+    width: auto;                 /* remove fixed width that created gaps */
+    padding: 8px 0;
+    margin: 0;
+}
+
+
+.caption {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #171717;
+    text-align: right;
+    margin-left: 10px;
+    line-height: 1.2;
+    flex: 1;
+    margin: 0 8px 0 0;
+}
+
+.socials-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 35px;
+    font-weight: 600;
+    color: #171717;
+    margin-left: 10px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: left;
+    text-transform: uppercase;
+}
+.socials-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #171717;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+ /* Horizontális görgetésű konténerek stílusa */
+  .horizontal-scroll2 {
+    display: flex;
+    overflow-x: auto;
+    gap: 6px;
+    padding: 0 10px 10px 10px;/* Alulra is adunk paddingot a görgetéshez */
+    -webkit-overflow-scrolling: touch; /* iOS gördülő effektus */
+    scrollbar-width: none; /* Firefox */
+    background-attachment: fixed;
+    background-size: 573px 278px;
+    background-color: #cccccc;
+}
+
+.horizontal-scroll2::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+
+}
+
+.card-image2 {
+    width: 139px;
+    height: 205px;
+    object-fit: cover;
+    border-radius: 0px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.show-card2 {
+    flex-shrink: 0;
+    width: 205px; /* Kártya fix szélessége */
+    flex: 0 0 205px; /* Kártya fix szélessége */
+    flex-direction: row;
+    gap: 6px;
+    padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    flex: 0 0 auto;
+    width: auto;
+    padding: 8px 0;
+    margin: 0;
+}
+
+.social-caption {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #171717;
+    text-align: right;
+    margin-left: 10px;
+    line-height: 1.2;
+    flex: 1;
+    margin: 0 8px 0 0;
+    position: static;
+    width: 160px;
+}
+
+.iphone-container {
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 90px; /* reserve space for fixed nav */
+    box-sizing: border-box;
+}
+
+/* socials header: title and arrow on same line */
+.socials-header {
+    display: grid;
+    grid-template-columns: 1fr auto; /* title grows, arrow sized by image */
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 0 16px; /* keep from touching edges */
+    box-sizing: border-box;
+    margin: 12px 0;
+}
+
+.socials-title {
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    font-size: 35px;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+.black-arrow {
+    width: 50px;
+    height: auto;
+    display: block;
+}
+.black-arrow1 {
+    width: 50px;
+    height: auto;
+    display: block;
+}
+
+/* fashion header: title and arrow on same line */
+.fashion-header {
+    display: grid;
+    grid-template-columns: 1fr auto; /* title grows, arrow sized by image */
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 0 16px; /* keep from touching edges */
+    box-sizing: border-box;
+    margin: 8px 0;
+}
+
+.fashiontoday {
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    font-size: 35px;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+/* reuse .black-arrow sizing for consistency with socials */
+.fashion-header .black-arrow {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    display: block;
+    margin: 0;
+}

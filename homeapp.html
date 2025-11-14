@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPHFW HOME</title>
+    <link rel="stylesheet" href="homeapp.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Serif:ital@0;1&family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Rhodium+Libre&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <img class="cphfwlogo" src="LOGOS/cphfwlogo.png" alt="CPHFW Logo">
+    </header>
+    <main>
+        <div class="homeapppage">
+            <div class="column-events">
+                <div class="homemenu"><h1>EVENTS</h1></div>
+            </div>
+            <div class="column-next">
+                <div><a href="events.html"><img class="nextbutton" src="homeimages/buttons-icons/black-arrow.svg" alt="Next Arrow"></a></div>
+            </div>
+
+            <div class="section-image">
+                <!-- Swiper carousel -->
+                <div class="swiper my-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><a href="pompette.html"><img src="homeimages/pompette.png" alt="Slide 1"></a></div>
+                        <div class="swiper-slide"><a href="rolf.html"><img src="homeimages/rolfe.png" alt="Slide 2"></a></div>
+                        <div class="swiper-slide"><a href="caro.html"><img src="homeimages/caro.png" alt="Slide 3"></a></div>
+                    </div>
+                    <!-- Pagination and navigation -->
+                    <div class="swiper-pagination" aria-hidden="false"></div>
+                    <div class="swiper-button-prev" aria-label="Previous slide"></div>
+                    <div class="swiper-button-next" aria-label="Next slide"></div>
+                </div>
+            </div>
+            <div class="column-talent">
+                <div class="homemenu"><h1>NEW TALENT</h1></div> 
+                <div class="click-row">
+                    <p>For more details click below</p>
+                    <img src="homeimages/buttons-icons/down-arrow-download-svgrepo-com.svg" class="clickbelow" alt="clickbelow arrow" width="18" height="18">
+                </div>
+            </div>
+            <div class="section-image">
+                <div><a href="anne.html"><img class="logo-anne" src="homeimages/afmlogo.png" alt="anne logo"></a></div>
+                <div><a href="bonnetje.html"><img class="logo-bonnetje" src="homeimages/bonlogo.png" alt="Bonnetje logo"></a></div>
+                <div><a href="stem.html"><img class="logo-stem" src="homeimages/stem.png" alt="Stem logo"></a></div>
+            </div>
+            <div class="column-brands">
+                <div class="homemenu"><h1>BRANDS LINE UP</h1></div>            
+            </div>
+            <div class="column-next">
+                <div><a href="brandsapp.html"><img class="nextbutton" src="homeimages/buttons-icons/black-arrow.svg" alt="Home Image"></a></div>
+            </div>
+            <div class="section-image">
+                <div><img class="menu-image" src="homeimages/brandsimagewide.png" alt="Menu Image"></div>
+            </div>
+        </div>
+    </main>
+    <!-- Shared mobile nav (loaded from includes/nav.html) -->
+    <div id="site-nav" data-include="includes/nav.html"></div>
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <script>
+            // Initialize Swiper for the event carousel
+            document.addEventListener('DOMContentLoaded', function () {
+                const swiper = new Swiper('.my-swiper', {
+                    loop: true,
+                    slidesPerView: 1,
+                    spaceBetween: 8,
+                    autoplay: {
+                        delay: 3500,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    a11y: true,
+                });
+            });
+        </script>
+        <script src="js/load-nav.js" defer></script>
+</body>
+</html>

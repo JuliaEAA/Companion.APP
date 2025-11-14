@@ -1,0 +1,226 @@
+:root {
+     --primary-color: #171717;
+     --secondary-color: #717174;
+     --background-color: #fefefe;
+     --font-family: 'DM Sans', sans-serif;
+     --max-width: 440px; /* A kért maximális szélesség mobiltelefonhoz */
+     --max-height: 1028px; /* A kért maximális magasság mobiltelefonhoz */
+ }
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+/* Fonts Import */
+.dm-sans {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.dm-sans-bold {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+.oswald {
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.oswald-bold {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.backwrap {
+  position: relative;
+  bottom: auto;
+  left: 20px;
+}
+.backbutton {
+  width: 75px;
+  height: auto; /* fixed height for consistent centering */
+}
+.iphone-container {
+    width: 100%;
+    padding-top: 40px;
+    margin: 0 auto;
+    padding-bottom: 90px; /* reserve space for fixed nav */
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+}
+body h1 {
+    font-family: 'DM Sans', sans-serif;
+    color: #171717;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+.sectiontitle {
+    font-family: 'DM Sans', sans-serif;
+    color: #171717;
+    font-weight: 400;
+    margin-top: 40px;
+}
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* two equal columns */
+  align-items: center;
+
+}
+.columns img {
+    width: 100%;
+    height: auto;
+    display: block;}
+  /* ensure the social text appears in the second column */
+
+/*************** Rolling Gallery OPEN *************/
+.rolling-gallery-container {
+  width: 100%;
+  max-width: var(--max-width);
+  height: 205px;
+  margin: 40px auto;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Position the backbutton relative to the AFTERPARTY section.
+   Backbutton will sit 30px above the AFTERPARTY heading. */
+.category-section { /* From back button to bottom of meet and greet photos */
+  position: relative;
+}
+.category-section .backbutton {
+  position: absolute;
+  left: 16px; /* align with section heading's left margin */
+  top: -30px; /* 30px above the start of the category-section (places it above the h1) */
+  width: 50px;
+  height: 50px;
+  z-index: 20;
+  
+}
+
+.rolling-gallery {
+  display: flex;
+  gap: 8px;
+  animation: roll 30s linear infinite;
+  width: max-content;
+}
+
+.rolling-item {
+  width: 139px;
+  height: 205px;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  
+}
+
+.rolling-item:hover {
+  transform: scale(1.05);
+  animation-play-state: paused;
+}
+
+.rolling-gallery:hover {
+  animation-play-state: paused;
+}
+
+.rolling-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@keyframes roll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* Duplicate items for seamless loop */
+.rolling-gallery::after {
+  content: '';
+  display: flex;
+}
+/*************** Rolling Gallery CLOSE *************/
+
+/*************** Rolling Gallery 2 OPEN *************/
+.rolling-gallery-container2 {
+  width: 100%;
+  max-width: var(--max-width);
+  height: 205px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.rolling-gallery2 {
+  display: flex;
+  gap: 8px;
+  animation: roll 30s linear infinite;
+  animation-direction: reverse;
+  width: max-content;
+}
+
+.rolling-item2 {
+  width: 139px;
+  height: 205px;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.rolling-item2:hover {
+  transform: scale(1.05);
+  animation-play-state: paused;
+}
+
+.rolling-gallery2:hover {
+  animation-play-state: paused;
+}
+
+.rolling-item2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@keyframes roll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Duplicate items for seamless loop */
+.rolling-gallery2::after {
+  content: '';
+  display: flex;
+}
+/*************** Rolling Gallery 2 CLOSE *************/
+/* ensure nav hides/adjusts on very small screens */
+@media (max-width: 380px){
+    .mobile-tab-bar{ width: calc(100% - 16px); bottom: 8px; }
+    .tabicon{ width: 20px !important; height: 20px !important; }
+}
+

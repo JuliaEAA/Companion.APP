@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Discounts — CPHFW</title>
+    <link rel="stylesheet" href="discounts.css">
+    <!-- Google Fonts (match homeapp.html) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Serif:ital@0;1&family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Rhodium+Libre&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="app-container">
+<header class="header">
+  <img class="logo-image" src="LOGOS/cphfwlogo.png" alt="CPHFW logo">
+</header>
+    <!-- DISCOUNTS -->
+        <section class="main-content">
+            <h2 class="discounts-title">Discounts</h2>
+        </section>
+            <!-- Looping horizontal drag carousel -->
+            <div class="loop-carousel" aria-label="Discount carousel">
+                <button class="lc-nav lc-prev" aria-label="Previous">‹</button>
+                <div class="lc-viewport">
+                    <div class="lc-track">
+                        <div class="lc-item"><img src="homeimages/discounts/st1.png" data-full="homeimages/discounts/st2.png" alt="Discount ST" loading="lazy" draggable="false"></div>
+                        <div class="lc-item"><img src="homeimages/discounts/t1.png" data-full="homeimages/discounts/t2.png" alt="Discount T" loading="lazy" draggable="false"></div>
+                        <div class="lc-item"><img src="homeimages/discounts/z1.png" data-full="homeimages/discounts/z2.png" alt="Discount Z" loading="lazy" draggable="false"></div>
+                    </div>
+                </div>
+                <div class="lc-dots" aria-hidden="false" role="tablist" aria-label="Carousel pagination"></div>
+                <button class="lc-nav lc-next" aria-label="Next">›</button>
+            </div>
+            <!-- Lightbox overlay (opened when clicking a carousel image) -->
+            <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+                <button class="lightbox-close" aria-label="Close preview">×</button>
+            </div>
+</div>
+    <!-- Shared mobile nav (loaded from includes/nav.html) -->
+    <div id="site-nav" data-include="includes/nav.html"></div>
+    <script src="js/load-nav.js" defer></script>
+    <script src="js/loop-carousel.js"></script>
+    <script src="js/lightbox.js" defer></script>
+
+</body>
+</html>

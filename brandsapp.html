@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPHFW Brands</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">   
+<style>
+    /* DM Sans Font Styles */
+.dm-sans {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.dm-sans-bold {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+    body {
+        margin: 0;
+        font-family: 'DM Sans', sans-serif;
+        background-color: #fbfbfb;
+    }
+    body h1 {
+        font-size: 30px;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+        font-family: "DM Sans", sans-serif;
+    }
+    body h2 {
+        font-size: 20px;
+        font-weight: 400;
+        margin: 0;
+        padding: 10px 0px;
+        font-family: "DM Sans", sans-serif;
+    }
+    .logo {
+        display: block;
+        margin: 0 auto; /* center the image horizontally */
+        max-width: 100%;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border-radius: 20px;
+        padding-top: 20px;
+}
+    /* Ensure the wide logo image scales to viewport width and preserves aspect ratio */
+    .logo img {
+        display: block;
+        width: 100%;      /* fill the container width */
+        max-width: 100%;  /* never exceed the viewport/container */
+        height: auto;     /* preserve aspect ratio */
+        object-fit: contain;
+    }
+    .back {
+    grid-column: 1 / 2;
+    display: flex;
+    width: 75px;
+    height: auto; /* fixed height for consistent centering */
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    }
+    .backtotop {
+        /* fix the back-to-top button to the top-right corner */
+        position: fixed;
+        padding-right: 20px;
+        top: 40px;
+        right: 20px;
+        width: 50px;
+        height: auto; /* fixed height for consistent sizing */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+    .brandspage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0px;
+    padding-top: 20px;
+    }
+    .brandcolumns {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        grid-gap: 0px;
+        padding: 20px;
+    }
+    .charactercolumn {
+        grid-column: 1 / 2;
+        padding: 5px 0px 0px 20px ;
+        display: flex;
+        justify-content: left;
+        align-items: start;
+    }
+    .brandnamecolumn {
+        grid-column: 2 / 3;
+        width: 100%;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        border-bottom: 1.5px solid #d0d0d0;
+
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="brandspage">
+        <a href="homeapp.html"><img class="back" src="homeimages/buttons-icons/backbutton.svg" alt="back button"></a>
+        <a href="brandsapp.html"><img class="backtotop" src="homeimages/buttons-icons/backtotop.svg" alt="back to top"></a>
+        </div>
+    </header>
+
+    <div class="maincontent">
+    <div class="logo">
+        <img src="homeimages/logowide.png" alt="CPHFW Logo">
+    </div>
+    <div class="brandcolumns">
+        <div class="charactercolumn"><h1>#</h1></div>
+        <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/66-north"><h2>66°North</h2></a></div>
+    </div>
+    <div class="brandcolumns">
+       <div class="charactercolumn"><h1>A</h1></div>
+        <div>
+            <div class="brand-row">
+                <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/aiayu"><h2>Aiayu</h2></a></div>
+            </div>
+            <div class="brand-row">
+                <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/alis"><h2>Alis</h2></a></div>
+            </div>
+            <div class="brand-row">
+                <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/anne-sofie-madsen"><h2>Anne Sofie Madsen</h2></a></div>
+            </div>
+        </div>
+    </div>
+        <div class="brandcolumns">
+       <div class="charactercolumn"><h1>B</h1></div>
+        <div>
+            <div class="brand-row">
+                <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/baum-und-pferdgarten"><h2>Baum und Pferdgarten</h2></a></div>
+            </div>
+            <div class="brand-row">
+                <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/berner-kühl"><h2>Berner Kühl</h2></a></div>
+            </div>
+            <div class="brand-row">
+                <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/birrot"><h2>Birrot</h2></a></div>
+            </div>
+            <div class="brand-row">
+                <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/bonnetje"><h2>Bonnetje</h2></a></div>
+            </div>
+        </div>
+    </div>
+        <div class="brandcolumns">
+       <div class="charactercolumn"><h1>C</h1></div>
+        <div>
+            <div class="brand-row">
+                <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/caro-editions"><h2>Caro Editions</h2></a></div>
+            </div>
+            <div class="brand-row">
+                <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/cecilie-bahnsen"><h2>Cecilie Bahnsen</h2></a></div>
+            </div>
+            <div class="brand-row">
+                <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/cmmn-swdn"><h2>Cmmn Swdn</h2></a></div>
+            </div>
+        </div>
+    </div>
+        <div class="brandcolumns">
+        <div class="charactercolumn"><h1>D</h1></div>
+            <div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/deadwood"><h2>Deadwood</h2></a></div>
+                </div>
+            </div>
+    </div>
+        <div class="brandcolumns">
+        <div class="charactercolumn"><h1>F</h1></div>
+            <div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/filippa-k"><h2>Filippa K</h2></a></div>
+                </div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/fine-chaos"><h2>Fine Chaos</h2></a></div>
+                </div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/forza-collective"><h2>Forza Collective</h2></a></div>
+                </div>
+            </div>
+    </div>
+        <div class="brandcolumns">
+        <div class="charactercolumn"><h1>G</h1></div>
+            <div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/gestuz"><h2>Gestuz</h2></a></div>
+                </div>
+            </div>
+    </div>
+        <div class="brandcolumns">
+        <div class="charactercolumn"><h1>H</h1></div>
+            <div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/han-kjøbenhavn"><h2>Han Kjøbenhavn</h2></a></div>
+                </div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/henrik-vibskov"><h2>Henrik Vibskov</h2></a></div>
+                </div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/herskind"><h2>Herskind</h2></a></div>
+                </div>
+            </div>
+    </div>
+        <div class="brandcolumns">
+        <div class="charactercolumn"><h1>I</h1></div>
+            <div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/iamisigo"><h2>Iamisigo</h2></a></div>
+                </div>
+            </div>
+    </div>
+        <div class="brandcolumns">
+        <div class="charactercolumn"><h1>K</h1></div>
+            <div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/kamo"><h2>Kamo</h2></a></div>
+                </div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/kettel-atelier"><h2>Kettel Atelier</h2></a></div>
+                </div>
+            </div>
+    </div>
+        <div class="brandcolumns">
+        <div class="charactercolumn"><h1>M</h1></div>
+            <div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/marimekko"><h2>Marimekko</h2></a></div>
+                </div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/martin-quad"><h2>Martin Quad</h2></a></div>
+                </div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/mkdt-studio"><h2>MKDT Studio</h2></a></div>
+                </div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/munthe"><h2>Munthe</h2></a></div>
+                </div>
+            </div>
+    </div>
+        <div class="brandcolumns">
+        <div class="charactercolumn"><h1>N</h1></div>
+            <div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/nicklas-skovgaard"><h2>Nicklas Skovgaard</h2></a></div>
+                </div>
+            </div>
+    </div>
+        <div class="brandcolumns">
+        <div class="charactercolumn"><h1>O</h1></div>
+            <div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/opérasport"><h2>OpéraSport</h2></a></div>
+                </div>
+            </div>
+    </div>
+        <div class="brandcolumns">
+        <div class="charactercolumn"><h1>P</h1></div>
+            <div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/p-l-n"><h2>P.L.N.</h2></a></div>
+                </div>
+            </div>
+    </div>
+        <div class="brandcolumns">
+        <div class="charactercolumn"><h1>R</h1></div>
+            <div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/rabens-saloner"><h2>Rabens Saloner</h2></a></div>
+                </div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/ranra"><h2>Ranra</h2></a></div>
+                </div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/rave-review"><h2>Rave Review</h2></a></div>
+                </div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/rolf-ekroth"><h2>Rolf Ekroth</h2></a></div>
+                </div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/rotate"><h2>Rotate</h2></a></div>
+                </div>
+            </div>
+    </div>
+        <div class="brandcolumns">
+        <div class="charactercolumn"><h1>S</h1></div>
+            <div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/skall-studio"><h2>Skall Studio</h2></a></div>
+                </div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/stel"><h2>Stel</h2></a></div>
+                </div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/stem"><h2>Stem</h2></a></div>
+                </div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/sunflower"><h2>Sunflower</h2></a></div>
+                </div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/swedish-school-of-textiles"><h2>Swedish School of Textiles</h2></a></div>
+                </div>
+            </div>
+    </div>
+        <div class="brandcolumns">
+        <div class="charactercolumn"><h1>T</h1></div>
+            <div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/taus"><h2>Taus</h2></a></div>
+                </div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/tg-botanical"><h2>TG Botanical</h2></a></div>
+                </div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/the-garment"><h2>The Garment</h2></a></div>
+                </div>
+                <div class="brand-row">
+                    <div class="brandnamecolumn"><a href="https://copenhagenfashionweek.com/brand/the-royal-danish-academy"><h2>The Royal Danish Academy</h2></a></div>
+                </div>
+            </div>
+    </div>
+    </div>  
+</body>
+</html>

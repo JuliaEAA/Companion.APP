@@ -1,0 +1,260 @@
+/* DM Sans Font Styles */
+.dm-sans {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.dm-sans-bold {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Oswald Font Styles */
+.oswald {
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.oswald-bold {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Base Body Styling */
+body {
+  background-color: #fbfbfb;
+  margin: 0;
+  /* Adds padding to prevent the fixed tab bar from covering content */
+  padding-bottom: 60px; 
+}
+
+/* Remove browser body margin so grid/content can sit flush to the viewport */
+body {
+  margin: 0;
+}
+body p {
+  font-family: "DM Sans", sans-serif;
+  grid-column: 1 / 2;
+  color: #2d2d2d;
+  font-weight: 400;
+  font-size: 12pt;
+  line-height: 1.5;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.click-row {
+  display: inline-flex; /* place paragraph and arrow on the same line */
+  align-items: center;
+  gap: 8px; /* space between text and arrow */
+  margin-left: 20px; /* keep same left offset as other paragraphs */
+  margin-top: 10px;
+}
+.click-row p { margin: 0; }
+
+.cphfwlogo {
+    width: 120px;
+    height: auto;
+    margin-top: 30px;
+    margin-left: 30px;
+    padding-bottom: 20px;
+}
+.homeapppage {
+  display: grid;
+  margin: 0 auto;
+  padding-top: 10px;
+  grid-template-columns: 1.80fr .20fr;
+  grid-gap: 0px;
+  background-color: #fbfbfb;
+
+}
+.column-events {
+  grid-column: 1 / 2;
+  font-family: 'Oswald', sans-serif;
+  padding-top: 20px;
+}
+.homemenu h1 {
+  text-align: left;
+  font-family: "Oswald", sans-serif;
+  font-size: 40px;
+ /* remove left spacing so the menu sits flush against the left edge */
+  padding-left: 20px;
+  margin: 0;
+  color: #2d2d2d;
+}
+.section-image { /* Logo images */
+  grid-column: 1 / -1; /* span entire grid row */
+  display: flex;       /* lay children out in a row */
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;     /* wrap on very narrow screens */
+  width: 100%;
+  box-sizing: border-box;
+}
+/* Swiper carousel styles */
+.my-swiper {
+  width: 100%;
+  max-width: 100%;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
+}
+.my-swiper .swiper-wrapper {
+  align-items: center;
+}
+.my-swiper .swiper-slide {
+  /* Let slides size themselves when slidesPerView: 'auto' is used. */
+  width: 78%;               /* mobile: show one large slide with peeking edges */
+  max-width: 920px;        /* avoid too-wide slides on very large screens */
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.my-swiper .swiper-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Desktop: show smaller slides side-by-side */
+@media (min-width: 900px) {
+  .my-swiper .swiper-slide { width: 48%; }
+}
+
+@media (min-width: 1400px) {
+  .my-swiper .swiper-slide { width: 36%; }
+}
+.swiper-button-next, .swiper-button-prev {
+  color: #000;
+}
+.swiper-pagination-bullet {
+  background: rgba(0,0,0,0.35);
+}
+.swiper-pagination-bullet-active {
+  background: #000;
+}
+.menu-image, .event-image {
+  width: 100%;
+  height: auto;
+  opacity: 90%;
+}
+.menu-image, .event-image {
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
+}
+.event-info {
+  grid-column: 1 / span 2;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+  font-size: 12pt;
+
+}
+.column-talent {
+  padding-top: 20px;
+  grid-column: 1 / 2;
+}
+.column-talent p {
+  font-size: 18pt;
+}
+.column-brands {
+  padding-top: 20px;
+  grid-column: 1 / 2;
+}
+.column-next {
+  padding-bottom: 20px;
+  grid-column: 2 / 3;
+  /* center content inside the right column */
+  display: flex;
+  align-items: center;   /* vertical centering */
+  justify-content: center; /* horizontal centering */
+}
+.column-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Make the image span the full width of the column */
+}
+.section-image {  /* brands and explore images */
+  grid-column: 1 / span 2;
+  max-width: 430px;
+  padding: 20px 10px 0 10px;
+}
+.logo-anne, .logo-bonnetje, .logo-stem {
+  width: 120px;       /* preferred desktop size */
+  max-width: 28vw;    /* scale on narrow screens */
+  height: auto;
+  grid-column: 1 / span 2;
+
+}
+/* Responsive styles for iPhone 14 Pro Max */
+@media (max-width: 430px) {
+  .homeapppage {
+    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+  }
+  .column-image {
+    grid-column: 1 / -1; /* Span both columns */
+  }
+}
+.nextbutton {
+  display: flex;
+  margin-right: 20px;
+  padding: 5px 0 5px 0;
+  margin-top: 20px;
+  width: 50px;
+  height: 50px; /* fixed height for consistent centering */
+  align-content: center;
+  justify-content: center;
+}
+/* --- Mobile Tab Bar Styles --- */
+.mobile-tab-bar {
+    position: fixed; /* Locks the bar to the viewport */
+    bottom: 0; /* Positions it at the bottom */
+    left: 0;
+    width: 100%;
+    height: 60px; /* Fixed height */
+    background-color: #f3f3f3;
+    opacity: 0.85; /* Slight transparency */
+    border-top: 1px solid #eeeeee;
+    z-index: 1000;
+}
+
+.mobile-tab-bar ul {
+    display: flex; 
+    justify-content: space-around;
+    align-items: center; 
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.tab-item {
+    flex-grow: 1; /* Ensures equal width distribution */
+    text-align: center;
+}
+
+.tab-item a {
+    display: flex;
+    flex-direction: column; /* Stacks icon and text */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: #888888; /* Inactive color */
+    font-size: 12px;
+    font-family: "DM Sans", sans-serif; /* Use your existing font */
+    transition: color 0.2s;
+}
+
+/* Icon Styling */
+.tab-item a i {
+    font-size: 20px; /* Slightly smaller icon size */
+    margin-bottom: 3px;
+}
+
+/* Active State */
+.tab-item.active a {
+    color: #171717; /* Use black or a brand color for the active tab */
+    font-weight: bold;
+}

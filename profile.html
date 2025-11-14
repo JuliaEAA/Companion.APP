@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Profile — Social App</title>
+	<link rel="stylesheet" href="discounts.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+	<style>
+		/* Small profile-specific styles */
+		.profile-wrap { padding: 18px; max-width:1100px; margin: 0 auto; }
+			.profile-card { position:relative; display:flex; flex-direction:column; gap:12px; padding:18px; background: #fff; box-shadow: 0 8px 30px rgba(12,20,30,0.04); }
+
+			/* Settings cog + menu (positioned top-right of profile card) */
+			.profile-settings { position: absolute; top: 12px; right: 12px; z-index: 30; }
+			.settings-btn {
+				background: transparent;
+				border: none;
+				padding: 8px;
+				border-radius: 8px;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+			}
+			.settings-btn:focus { outline: 2px solid rgba(23,23,23,0.12); outline-offset: 2px; }
+			.settings-menu { font-family: 'DM Sans', sans-serif; display: none; position: absolute; right: 0; top: 44px; min-width: 200px; background: #fff; border-radius: 10px; box-shadow: 0 8px 30px rgba(12,20,30,0.08); padding: 8px 6px; list-style:none; margin:0; z-index:40; }
+			.settings-menu.active { display: block; }
+			.settings-menu li { padding: 6px 10px; }
+			.settings-menu li + li { border-top: 1px solid rgba(0,0,0,0.04); }
+		.profile-top { display:flex; gap:18px; align-items:center; padding-top: 12px;}
+		.profile-bottom { display:flex; flex-direction:column; gap:12px; }
+		.avatar { width:120px; height:120px; border-radius:999px; overflow:hidden; flex:0 0 120px; display:block; background: #f3f3f3; display:flex; align-items:center; justify-content:center;}
+		.avatar img { width:100%; height:100%; object-fit:cover; display:block; }
+		.profile-main { flex:1; }
+		.profile-name { font-family: 'DM Sans', sans-serif; font-size:22px; margin:0 0 4px; }
+		.profile-username { color:#666; margin:0 0 10px; padding-bottom: 12px; font-family: 'DM Sans', sans-serif;}
+		.profile-bio { margin:12px 0 12px; color:#333; font-family: "DM Sans", sans-serif;}
+		.profile-actions { display:flex; gap:10px; align-items:center; }
+		.btn { padding:8px 12px; border-radius:8px; border:none; cursor:pointer; font-weight:600; }
+		.btn-primary { background:#171717; color:#fff; }
+		.btn-ghost { background:transparent; border:1px solid rgba(0,0,0,0.08); }
+		.stats { display:flex; gap:18px; margin-top:12px; color:#333; font-family: "DM Sans", sans-serif; }
+		.stat { text-align:center; font-family: 'DM Sans', sans-serif; }
+		.stat .num { font-weight:700; display:block; }
+
+		/* Posts grid */
+		.posts { margin-top:18px; display:grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap:10px; }
+		.post { background:#fff; overflow:hidden; display:block; height:120px; }
+		.post img { width:100%; height:100%; object-fit:cover; display:block; }
+
+		/* Simple modal */
+		.modal-overlay { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.45); z-index: 1200; }
+		.modal-overlay.active { display:flex; }
+		.modal { background: #fff; padding: 18px; border-radius: 10px; width: min(96%, 520px); }
+		.modal h3 { margin-top:0; }
+		.form-row { margin-bottom:10px; }
+		.form-row input, .form-row textarea { width:100%; padding:8px; border-radius:8px; border:1px solid #e6e6e6; }
+
+		/* Layout: make the page full-height and distribute content evenly.
+		   The .profile-wrap will expand to fill available vertical space between header and mobile nav
+		   and its children will be spaced with `space-between`. On small screens we fall back to normal flow. */
+		html, body { height: 100%; }
+		body { display: flex; flex-direction: column; min-height: 100vh; }
+		main { flex: 1 1 auto; display: flex; align-items: stretch; justify-content: center; padding: 12px 0; }
+		/* Make profile-wrap take available vertical space and space its internal sections evenly */
+		.profile-wrap { width:100%; max-width:960px; display:flex; flex-direction:column; justify-content:space-between; min-height: calc(100vh - 180px); }
+		/* Keep card and posts visually separated */
+		.profile-card { margin-bottom: 12px; }
+		.posts { margin-top: 12px; }
+		@media (max-width: 700px) {
+			/* On small screens use normal flow and compact spacing */
+			main { align-items:flex-start; }
+			.profile-wrap { min-height: auto; padding: 12px 10px; }
+			.profile-card { margin-bottom: 10px; }
+			.posts { margin-top: 10px; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<section class="profile-wrap">
+			<div class="profile-card">
+				<!-- settings cog (top-right) -->
+				<div class="profile-settings">
+					<button id="settingsBtn" class="settings-btn" aria-haspopup="true" aria-expanded="false" aria-controls="settingsMenu" title="Account settings">
+						<img src="homeimages/buttons-icons/settings-2-svgrepo-com.svg" width="24" height="24" aria-hidden="true" alt="">
+					</button>
+					<ul id="settingsMenu" class="settings-menu" role="menu" aria-hidden="true">
+						<li>Account settings</li>
+						<li>Privacy</li>
+						<li>Notifications</li>
+						<li>Log out</li>
+					</ul>
+				</div>
+				<div class="profile-top">
+					<div class="avatar" id="avatarWrap">
+						<img id="avatarImg" src="homeimages/" alt="Avatar">
+					</div>
+					<div class="profile-main">
+						<h2 class="profile-name" id="profileName">Pierre J. Allard</h2>
+						<div class="profile-username" id="profileHandle">@pierrejallard</div>
+						<div class="profile-actions">
+                            <button class="btn btn-ghost" id="editBtn">Edit Profile</button>
+							<button class="btn btn-ghost" id="followBtn">Share Profile</button>
+						</div>
+					</div>
+				</div>
+				<div class="profile-bottom">
+					<p class="profile-bio" id="profileBio">Personal Bio</p>
+				</div>
+			</div>
+			<div class="posts" id="postsGrid">
+                <a class="post" href="#"><img src="homeimages/brand1.jpg" alt="post"></a>
+                <a class="post" href="#"><img src="homeimages/brand2.jpg" alt="post"></a>
+				<a class="post" href="#"><img src="homeimages/coffee.jpg" alt="post"></a>
+				<a class="post" href="#"><img src="homeimages/runway.jpg" alt="post"></a>
+				<a class="post" href="#"><img src="homeimages/fashion.jpg" alt="post"></a>
+				<a class="post" href="#"><img src="homeimages/club.jpg" alt="post"></a>
+				<a class="post" href="#"><img src="homeimages/cph.jpg" alt="post"></a>
+				<a class="post" href="#"><img src="homeimages/fashionshow.jpg" alt="post"></a>
+                <a class="post" href="#"><img src="homeimages/rooftop.png" alt="post"></a>
+                <a class="post" href="#"><img src="homeimages/tivoli.jpg" alt="post"></a>
+                <a class="post" href="#"><img src="homeimages/lunch.jpg" alt="post"></a>
+			</div>
+		</section>
+	</main>
+
+	<!-- Shared mobile nav -->
+	<div id="site-nav" data-include="includes/nav.html"></div>
+
+	<!-- Edit profile modal -->
+	<div id="editModal" class="modal-overlay" role="dialog" aria-hidden="true">
+		<div class="modal" role="document">
+				<h3>Edit profile</h3>
+				<div class="form-row">
+					<label>Avatar</label>
+					<div style="display:flex; gap:12px; align-items:center;">
+						<div class="avatar" style="flex:0 0 auto; width:72px; height:72px;">
+							<img id="avatarPreviewSmall" src="homeimages/pierre.png" alt="avatar preview">
+						</div>
+						<div>
+							<input id="inputAvatar" type="file" accept="image/*">
+							<div style="font-size:12px; color:#666; margin-top:6px;">Or choose a preset:</div>
+							<div class="preset-grid" id="presetGrid" style="margin-top:6px; display:flex; gap:8px;">
+								<img class="preset" src="homeimages/preset1.jpg" alt="preset" style="width:44px; height:44px; border-radius:8px; object-fit:cover; cursor:pointer; border:2px solid transparent;">
+								<img class="preset" src="homeimages/preset2.jpg" alt="preset" style="width:44px; height:44px; border-radius:8px; object-fit:cover; cursor:pointer; border:2px solid transparent;">
+								<img class="preset" src="homeimages/preset3.jpg" alt="preset" style="width:44px; height:44px; border-radius:8px; object-fit:cover; cursor:pointer; border:2px solid transparent;">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="form-row">
+					<label for="inputName">Name</label>
+					<input id="inputName" type="text" value="Pierre J. Allard">
+				</div>
+				<div class="form-row">
+					<label for="inputHandle">Username</label>
+					<input id="inputHandle" type="text" value="pierreallard">
+				</div>
+				<div class="form-row">
+					<label for="inputBio">Bio</label>
+					<textarea id="inputBio" rows="3">Founder and creative force behind Mode Fantaisie, my French fashion brand dedicated to eccentric, sustainable design. With innovative eco-friendly materials. My mission is simple — to prove that fashion can be both beautiful and conscious.</textarea>
+				</div>
+			<div style="display:flex; gap:10px; justify-content:flex-end; margin-top:8px;">
+				<button class="btn btn-ghost" id="cancelEdit">Cancel</button>
+				<button class="btn btn-primary" id="saveEdit">Save</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/load-nav.js" defer></script>
+	<script>
+		// small interactivity for follow/edit
+		document.addEventListener('DOMContentLoaded', function(){
+		// load saved profile from localStorage (if any)
+		const saved = JSON.parse(localStorage.getItem('profile') || '{}');
+		if (saved.name) document.getElementById('profileName').textContent = saved.name;
+		if (saved.handle) document.getElementById('profileHandle').textContent = '@' + saved.handle;
+		if (saved.bio) document.getElementById('profileBio').textContent = saved.bio;
+		if (saved.avatar) {
+			document.getElementById('avatarImg').src = saved.avatar;
+			document.getElementById('avatarPreviewSmall').src = saved.avatar;
+		}
+
+		// avatar selection helpers
+		const inputAvatar = document.getElementById('inputAvatar');
+		const avatarImg = document.getElementById('avatarImg');
+		const avatarPreviewSmall = document.getElementById('avatarPreviewSmall');
+		let currentAvatar = saved.avatar || avatarImg.src;
+
+		function setAvatarSrc(src){
+			currentAvatar = src;
+			avatarImg.src = src;
+			avatarPreviewSmall.src = src;
+			// clear preset selection borders
+			document.querySelectorAll('.preset').forEach(p => p.style.borderColor = 'transparent');
+		}
+
+		inputAvatar.addEventListener('change', function(e){
+			const file = e.target.files && e.target.files[0];
+			if (!file) return;
+			const reader = new FileReader();
+			reader.onload = function(ev){ setAvatarSrc(ev.target.result); };
+			reader.readAsDataURL(file);
+		});
+
+		// preset clicks
+		document.querySelectorAll('.preset').forEach(img => {
+			img.addEventListener('click', function(){
+				setAvatarSrc(this.src);
+				this.style.borderColor = '#171717';
+			});
+		});
+
+
+			const followBtn = document.getElementById('followBtn');
+			followBtn.addEventListener('click', ()=> {
+				followBtn.textContent = followBtn.textContent === 'Follow' ? 'Following' : 'Follow';
+				followBtn.classList.toggle('btn-primary');
+			});
+
+			const editBtn = document.getElementById('editBtn');
+			const editModal = document.getElementById('editModal');
+			const inputName = document.getElementById('inputName');
+			const inputHandle = document.getElementById('inputHandle');
+			const inputBio = document.getElementById('inputBio');
+
+			editBtn.addEventListener('click', ()=>{
+				editModal.classList.add('active');
+				editModal.setAttribute('aria-hidden','false');
+			});
+			document.getElementById('cancelEdit').addEventListener('click', ()=>{
+				editModal.classList.remove('active');
+				editModal.setAttribute('aria-hidden','true');
+			});
+			document.getElementById('saveEdit').addEventListener('click', ()=>{
+				const newName = inputName.value || 'No name';
+				const newHandle = inputHandle.value || 'user';
+				const newBio = inputBio.value || '';
+				document.getElementById('profileName').textContent = newName;
+				document.getElementById('profileHandle').textContent = '@' + newHandle;
+				document.getElementById('profileBio').textContent = newBio;
+				// save avatar and inputs to localStorage so changes persist
+				const profileToSave = { name: newName, handle: newHandle, bio: newBio, avatar: currentAvatar };
+				try { localStorage.setItem('profile', JSON.stringify(profileToSave)); } catch (err) { /* ignore storage errors */ }
+				editModal.classList.remove('active');
+				editModal.setAttribute('aria-hidden','true');
+			});
+
+			// settings menu behaviour
+			const settingsBtn = document.getElementById('settingsBtn');
+			const settingsMenu = document.getElementById('settingsMenu');
+			function closeSettings(){
+				if (!settingsMenu) return;
+				settingsMenu.classList.remove('active');
+				settingsBtn.setAttribute('aria-expanded','false');
+				settingsMenu.setAttribute('aria-hidden','true');
+			}
+			function openSettings(){
+				if (!settingsMenu) return;
+				settingsMenu.classList.add('active');
+				settingsBtn.setAttribute('aria-expanded','true');
+				settingsMenu.setAttribute('aria-hidden','false');
+				// focus first item for keyboard users
+				const first = settingsMenu.querySelector('button, a');
+				if (first) first.focus();
+			}
+
+			if (settingsBtn) {
+				settingsBtn.addEventListener('click', (e)=>{
+					e.stopPropagation();
+					const expanded = settingsBtn.getAttribute('aria-expanded') === 'true';
+					if (expanded) closeSettings(); else openSettings();
+				});
+			}
+
+			// close when clicking outside
+			document.addEventListener('click', (e)=>{
+				if (!settingsMenu) return;
+				if (!settingsMenu.contains(e.target) && !settingsBtn.contains(e.target)) closeSettings();
+			});
+
+			// close on Esc
+			document.addEventListener('keydown', (e)=>{
+				if (e.key === 'Escape') closeSettings();
+			});
+
+			// hook menu items
+			const menuEdit = document.getElementById('menuEditProfile');
+			if (menuEdit) menuEdit.addEventListener('click', ()=>{ editModal.classList.add('active'); editModal.setAttribute('aria-hidden','false'); closeSettings(); });
+			const menuLogout = document.getElementById('menuLogout');
+			if (menuLogout) menuLogout.addEventListener('click', ()=>{ /* placeholder logout */ alert('Logged out (demo)'); closeSettings(); });
+		});
+	</script>
+</body>
+</html>
+

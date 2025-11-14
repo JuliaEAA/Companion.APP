@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anne Sofie Madsen</title>
+<style>
+    body {
+        margin: 0 auto;
+        padding: 0;
+        font-family: 'DM Sans', sans-serif;
+        background-color: #fbfbfb;
+    }
+/* Make the anne details area fill the viewport and center images */
+.annedetails {
+    min-height: 100vh;           /* full viewport height */
+    display: flex;
+    flex-direction: column;      /* stack images vertically */
+    justify-content: center;     /* center vertically */
+    align-items: center;         /* center horizontally */
+    gap: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.annedetails img {
+    display: block;
+    padding-top: 30px;
+    width: 100%;          /* fill width */
+    max-width: 100%;
+    height: auto;
+    max-height: 100vh;    /* never exceed viewport height */
+    object-fit: contain;  /* preserve aspect ratio */
+}
+.newtalentpage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0px;
+  padding-top: 20px;
+}
+.back {
+  grid-column: 1 / 2;
+  display: flex;
+  width: 75px;
+  height: auto; /* fixed height for consistent centering */
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+.backtotop {
+    /* fix the back-to-top button to the top-right corner */
+    position: fixed;
+    padding-right: 20px;
+    top: 50px;
+    right: 20px;
+    width: 50px;
+    height: 50px; /* fixed height for consistent sizing */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="newtalentpage">
+        <a href="homeapp.html"><img class="back" src="homeimages/buttons-icons/backbutton.svg" alt="back button"></a>
+        <a href="anne.html"><img class="backtotop" src="homeimages/buttons-icons/backtotop.svg" alt="CPHFW Logo"></a>
+        </div>
+    </header>
+    <div class="annedetails">
+    <img src="homeimages/a1.png" alt="anne">
+    <img src="homeimages/a2.png" alt="anne">
+    <img src="homeimages/a3.png" alt="anne">
+    </div>  
+        <!-- Shared mobile nav (loaded from includes/nav.html) -->
+    <div id="site-nav" data-include="includes/nav.html"></div>
+        <script src="js/load-nav.js" defer></script>
+</body>
+</html>

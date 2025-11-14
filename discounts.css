@@ -1,0 +1,203 @@
+/* DM Sans Font Styles */
+.dm-sans {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.dm-sans-bold {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Oswald Font Styles */
+.oswald {
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.oswald-bold {
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+/* logo Styling */
+.header { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    max-width: var(--max-width);
+    margin-top: 10px;
+    margin-left: 15px;
+}
+.discounts-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 70px;
+    font-weight: 500;
+    color: #171717;
+    margin: 10px 0 10px 0;
+    text-transform: uppercase;
+      /* font-style: medium is invalid; font-weight already set above */
+    text-align: center;
+    border-bottom: 2px dashed #171717;
+  }
+body {
+  background-color: #fbfbfb;
+  margin: 0 auto;
+  /* Adds padding to prevent the fixed tab bar from covering content */
+  padding-bottom: 60px; 
+}
+.logo-image {
+    width: 120px;
+    height: 79px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+/* Loop carousel styles */
+.loop-carousel {
+  display:flex;
+  align-items:center;
+  margin-top: 40px;
+  gap:12px;
+  width:100%;
+  box-sizing:border-box;
+  position: relative; /* needed so dots can be absolutely positioned beneath the viewport */
+}
+.loop-carousel .lc-viewport { overflow:hidden; flex:1; perspective:1100px; }
+.loop-carousel .lc-track { display:flex; gap:12px; align-items:center; transform:translateX(0); will-change:transform; touch-action: pan-y; transform-style: preserve-3d; }
+.loop-carousel .lc-item { flex:0 0 78%; max-width:920px; box-sizing:border-box; border-radius:10px; overflow:hidden; background: transparent; display:flex; align-items:center; justify-content:center; transition: transform 260ms cubic-bezier(.22,.9,.2,1), box-shadow 260ms cubic-bezier(.22,.9,.2,1); transform-origin: center center; will-change: transform, box-shadow; }
+.loop-carousel .lc-item img { max-width:100%; max-height:420px; width:auto; height:auto; object-fit:contain; display:block; transition: transform 260ms cubic-bezier(.22,.9,.2,1); }
+
+/* Depth / active item styles */
+.loop-carousel .lc-item.is-active { transform: translateY(-6px) scale(1.04); box-shadow: 0 20px 50px rgba(12,20,30,0.18); z-index: 5; }
+.loop-carousel .lc-item:not(.is-active) { transform: translateY(0) scale(0.995); box-shadow: 0 8px 22px rgba(0,0,0,0.06); z-index: 1; }
+.loop-carousel .lc-item.is-active img { transform: translateZ(20px) scale(1.01); }
+.lc-nav { background: transparent; border:none; width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 6px 16px rgba(0,0,0,0.08); }
+@media (min-width:900px) { .loop-carousel .lc-item { flex:0 0 48%; } }
+@media (min-width:1400px) { .loop-carousel .lc-item { flex:0 0 36%; } }
+
+/* dots */
+.lc-dots { display:flex; gap:8px; justify-content:center; position:absolute; left:50%; transform:translateX(-50%); bottom:-26px; }
+.lc-dot { width:10px; height:10px; border-radius:50%; background: rgba(0,0,0,0.18); border: none; padding:0; cursor:pointer; }
+.lc-dot.active { background:#171717; box-shadow: 0 2px 6px rgba(0,0,0,0.08); }
+
+/* Mobile tweaks for finger drag */
+@media (max-width: 600px) {
+  .loop-carousel { gap:8px; }
+  .loop-carousel .lc-item { flex:0 0 92%; max-height: 430px; }
+  .loop-carousel .lc-item img { max-height: 430px; }
+  .lc-nav { width:48px; height:48px; }
+  .loop-carousel .lc-track { gap:10px; }
+  /* ensure the viewport doesn't allow horizontal browser scrolling when dragging */
+  .lc-viewport, .lc-track { touch-action: pan-y; }
+  .lc-dots { bottom: -36px; }
+}
+
+/* --- Mobile Tab Bar Styles (copied from homeapp.css) --- */
+.mobile-tab-bar {
+  position: fixed; /* Locks the bar to the viewport */
+  bottom: 0; /* Positions it at the bottom */
+  left: 0;
+  width: 100%;
+  height: 60px; /* Fixed height */
+  background-color: #f3f3f3;
+  opacity: 0.85; /* Slight transparency */
+  border-top: 1px solid #eeeeee;
+  z-index: 1000;
+}
+
+.mobile-tab-bar ul {
+  display: flex; 
+  justify-content: space-around;
+  align-items: center; 
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.tab-item {
+  flex-grow: 1; /* Ensures equal width distribution */
+  text-align: center;
+}
+
+.tab-item a {
+  display: flex;
+  flex-direction: column; /* Stacks icon and text */
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #888888; /* Inactive color */
+  font-size: 12px;
+  font-family: "DM Sans", sans-serif; /* Use your existing font */
+  transition: color 0.2s;
+}
+
+.tab-item a i {
+  font-size: 20px; /* Slightly smaller icon size */
+  margin-bottom: 3px;
+}
+
+.tab-item.active a {
+  color: #171717; /* Use black or a brand color for the active tab */
+  font-weight: bold;
+}
+
+/* Modal: simple centered overlay for login requirement */
+.modal-overlay { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.45); z-index: 1200; visibility: hidden; opacity: 0; transition: opacity 180ms ease; }
+.modal-overlay[aria-hidden="false"] { visibility: visible; opacity: 1; }
+.modal { background: #fbfbfb; padding: 18px 18px; border-radius: 12px; max-width: 420px; width: calc(100% - 48px); box-shadow: 0 18px 40px rgba(12,20,30,0.18); text-align: center; }
+.modal h2 { margin: 0 0 8px; font-family: 'DM Sans', sans-serif; font-size: 20px; }
+.modal p { margin: 0 0 16px; color: #333; font-family: 'DM Sans', sans-serif; }
+.modal-actions { display:flex; gap:10px; justify-content:center; }
+.modal-btn { padding: 8px 14px; border-radius: 8px; text-decoration: none; cursor: pointer; border: none; font-weight: 600; }
+.modal-login { background: #171717; color: #fff; display:inline-block; font-family: 'DM Sans', sans-serif; }
+.modal-close { background: transparent; color: #171717; border: 1px solid rgba(0,0,0,0.08); font-family: 'DM Sans', sans-serif; }
+
+@media (max-width:600px) {
+  .modal { padding: 14px; border-radius: 10px; }
+  .modal h2 { font-size: 18px; }
+}
+
+/* --- Lightbox styles (for image preview on click) --- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none; /* shown when .open is added */
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.78);
+  z-index: 2000;
+  padding: 20px;
+}
+.lightbox.open {
+  display: flex;
+}
+.lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border-radius: 6px;
+  object-fit: contain;
+}
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 36px;
+  line-height: 1;
+  padding: 6px;
+  cursor: pointer;
+  z-index: 2010;
+}
+.lightbox-close:focus {
+  /* keep an accessible focus indicator for keyboard users */
+  outline: 2px solid rgba(255,255,255,0.65);
+  outline-offset: 2px;
+}
